@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Royal Estate | املاک لوکس</title>
+
+<meta name="description" content="خرید، فروش و اجاره املاک لوکس">
+<meta name="keywords" content="املاک، ویلا، آپارتمان، خرید خانه">
+<meta name="author" content="Evead">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<style>
+
+:root{
+    --gold:#D4AF37;
+    --dark:#08131F;
+    --navy:#102A43;
+    --white:#ffffff;
+    --gray:#c7c7c7;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:tahoma;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--dark);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(8,19,31,.7);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+}
+
+.logo{
+    color:var(--gold);
+    font-size:30px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:var(--gold);
+}
+
+.contact-btn{
+    background:var(--gold);
+    color:#000;
+    padding:12px 24px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+    line-height:1.3;
+}
+
+.hero span{
+    color:var(--gold);
+}
+
+.hero p{
+    color:#ddd;
+    line-height:2;
+    margin-bottom:30px;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    padding:25px;
+    border-radius:20px;
+
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+.search-box input,
+.search-box select{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+}
+
+.search-box button{
+    border:none;
+    border-radius:12px;
+    background:var(--gold);
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:45px;
+    color:var(--gold);
+}
+
+.section-title p{
+    color:#bbb;
+    margin-top:10px;
+}
+
+/* ================= CARDS ================= */
+
+.properties{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#0e1c2d;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.5s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:var(--gold);
+    font-size:24px;
+    margin:15px 0;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    color:#aaa;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+}
+
+.about-text h2{
+    color:var(--gold);
+    margin-bottom:20px;
+    font-size:42px;
+}
+
+.about-text p{
+    color:#ccc;
+    line-height:2;
+}
+
+/* ================= RESPONSIVE ================= */
+
+.hamburger{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+@media(max-width:992px){
+
+.hero h1{
+font-size:45px;
+}
+
+.search-box{
+grid-template-columns:1fr;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.menu{
+display:none;
+position:absolute;
+top:100%;
+right:0;
+width:100%;
+background:#08131F;
+flex-direction:column;
+padding:20px;
+}
+
+.menu.active{
+display:flex;
+}
+
+.hamburger{
+display:block;
+}
+
+.contact-btn{
+display:none;
+}
+
+}
+/* SERVICES */
+
+.services{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+.service-card{
+
+background:#0d1c2d;
+
+padding:35px;
+
+border-radius:20px;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.service-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(212,175,55,.25);
+
+}
+
+.icon{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+.service-card h3{
+
+margin-bottom:15px;
+
+color:var(--gold);
+
+}
+
+.service-card p{
+
+color:#bbb;
+
+line-height:2;
+
+}
+
+/* STATS */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:30px;
+
+text-align:center;
+
+}
+
+.stat{
+
+background:#0e1c2d;
+
+padding:45px;
+
+border-radius:20px;
+
+}
+
+.stat h2{
+
+font-size:55px;
+
+color:var(--gold);
+
+margin-bottom:10px;
+
+}
+
+/* TESTIMONIAL */
+
+.testimonial-wrapper{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+}
+
+.testimonial{
+
+background:#10243b;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.testimonial:hover{
+
+transform:translateY(-10px);
+
+}
+
+/* CONTACT */
+
+.contact-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:50px;
+
+}
+
+.contact-form{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.contact-form input,
+
+.contact-form textarea{
+
+padding:18px;
+
+background:#10243b;
+
+border:none;
+
+border-radius:12px;
+
+color:white;
+
+}
+
+.contact-form textarea{
+
+height:170px;
+
+resize:none;
+
+}
+
+.contact-form button{
+
+padding:18px;
+
+background:var(--gold);
+
+border:none;
+
+border-radius:12px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+.map{
+
+background:#10243b;
+
+height:100%;
+
+min-height:450px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:20px;
+
+font-size:26px;
+
+text-align:center;
+
+}
+
+/* FOOTER */
+
+footer{
+
+background:#06101b;
+
+padding:70px 20px;
+
+text-align:center;
+
+color:#aaa;
+
+}
+
+footer h2{
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+/* TOP BUTTON */
+
+#topBtn{
+
+position:fixed;
+
+bottom:30px;
+
+left:30px;
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:var(--gold);
+
+cursor:pointer;
+
+display:none;
+
+font-size:20px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.contact-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">ROYAL ESTATE</div>
+
+<ul class="menu" id="menu">
+<li><a href="#">خانه</a></li>
+<li><a href="#">املاک</a></li>
+<li><a href="#">خدمات</a></li>
+<li><a href="#">درباره ما</a></li>
+<li><a href="#">تماس</a></li>
+</ul>
+
+<a href="#" class="contact-btn">مشاوره رایگان</a>
+
+<div class="hamburger" id="hamburger">
+☰
+</div>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<h1>
+خانه‌ای برای
+<span>سبک زندگی لوکس</span>
+شما
+</h1>
+
+<p>
+بهترین ویلاها، آپارتمان‌های مدرن و املاک سرمایه‌گذاری
+را با تیم حرفه‌ای ما پیدا کنید.
+</p>
+
+<div class="search-box">
+
+<input type="text" placeholder="شهر">
+
+<select>
+<option>نوع ملک</option>
+<option>ویلا</option>
+<option>آپارتمان</option>
+<option>زمین</option>
+</select>
+
+<select>
+<option>محدوده قیمت</option>
+<option>تا 5 میلیارد</option>
+<option>5 تا 15 میلیارد</option>
+<option>15 میلیارد به بالا</option>
+</select>
+
+<button>جستجو</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>املاک ویژه</h2>
+
+<p>منتخب بهترین فرصت‌های سرمایه‌گذاری</p>
+
+</div>
+
+<div class="properties">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+
+<div class="card-content">
+
+<h3>ویلای مدرن ساحلی</h3>
+
+<div class="price">28 میلیارد تومان</div>
+
+<div class="info">
+<span>450 متر</span>
+<span>4 خواب</span>
+<span>3 پارکینگ</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1613977257363-707ba9348227">
+
+<div class="card-content">
+
+<h3>پنت هاوس لوکس</h3>
+
+<div class="price">35 میلیارد تومان</div>
+
+<div class="info">
+<span>520 متر</span>
+<span>5 خواب</span>
+<span>استخر</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde">
+
+<div class="card-content">
+
+<h3>ویلای جنگلی</h3>
+
+<div class="price">22 میلیارد تومان</div>
+
+<div class="info">
+<span>380 متر</span>
+<span>3 خواب</span>
+<span>روف گاردن</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa">
+
+<div class="about-text">
+
+<h2>درباره مجموعه ما</h2>
+
+<p>
+
+بیش از 15 سال تجربه در حوزه خرید، فروش و سرمایه‌گذاری
+املاک لوکس. هدف ما ارائه بهترین فرصت‌های بازار
+به مشتریان خاص و سرمایه‌گذاران حرفه‌ای است.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+<h2>خدمات ما</h2>
+<p>راهکارهای حرفه‌ای برای خرید، فروش و سرمایه‌گذاری</p>
+</div>
+
+<div class="services">
+
+<div class="service-card">
+<div class="icon">🏡</div>
+<h3>خرید ملک</h3>
+<p>
+مشاوره تخصصی برای خرید انواع ویلا، آپارتمان و زمین.
+</p>
+</div>
+
+<div class="service-card">
+<div class="icon">💰</div>
+<h3>فروش ملک</h3>
+<p>
+بازاریابی حرفه‌ای و فروش سریع با بهترین قیمت.
+</p>
+</div>
+
+<div class="service-card">
+<div class="icon">📈</div>
+<h3>سرمایه گذاری</h3>
+<p>
+تحلیل بازار و معرفی بهترین فرصت‌های سرمایه‌گذاری.
+</p>
+</div>
+
+<div class="service-card">
+<div class="icon">🗝️</div>
+<h3>اجاره</h3>
+<p>
+بهترین فایل‌های اجاره در سراسر شهر.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= STATISTICS ================= -->
+
+<section id="stats">
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h2 class="counter" data-target="1250">0</h2>
+<p>ملک ثبت شده</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="980">0</h2>
+<p>فروش موفق</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="540">0</h2>
+<p>مشتری راضی</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="15">0</h2>
+<p>سال تجربه</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= TESTIMONIAL ================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>نظرات مشتریان</h2>
+
+<p>اعتماد شما بزرگ‌ترین سرمایه ماست.</p>
+
+</div>
+
+<div class="testimonial-wrapper">
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+<br><br>
+
+فرآیند خرید خانه بسیار سریع و حرفه‌ای انجام شد.
+
+</p>
+
+<h4>علی محمدی</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+<br><br>
+
+تیم بسیار خوش برخورد و پاسخگو بودند.
+
+</p>
+
+<h4>زهرا احمدی</h4>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+
+★★★★★
+
+<br><br>
+
+بهترین تجربه خرید ویلای شمال را داشتم.
+
+</p>
+
+<h4>مهدی کریمی</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>تماس با ما</h2>
+
+<p>همین امروز با مشاوران ما تماس بگیرید.</p>
+
+</div>
+
+<div class="contact-grid">
+
+<div>
+
+<form class="contact-form">
+
+<input type="text" placeholder="نام شما">
+
+<input type="email" placeholder="ایمیل">
+
+<input type="tel" placeholder="شماره تماس">
+
+<textarea placeholder="پیام شما"></textarea>
+
+<button>
+
+ارسال درخواست
+
+</button>
+
+</form>
+
+</div>
+
+<div>
+
+<div class="map">
+
+📍
+
+<br><br>
+
+محل نمایش نقشه
+
+<br>
+
+(در نسخه نهایی Google Maps قرار می‌گیرد)
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<h2>ROYAL ESTATE</h2>
+
+<p>
+
+آژانس تخصصی خرید و فروش املاک لوکس
+
+</p>
+
+<br>
+
+<p>
+
+📞 021-12345678
+
+</p>
+
+<p>
+
+✉ info@royalestate.com
+
+</p>
+
+<br>
+
+<p>
+
+© 2026 Royal Estate
+
+</p>
+
+</div>
+
+</footer>
+
+<button id="topBtn">
+
+▲
+
+</button>
+<script>
+
+/* ===============================
+   منوی موبایل
+================================= */
+
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});
+
+/* ===============================
+   هدر هنگام اسکرول
+================================= */
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+
+        header.style.background="rgba(8,19,31,.95)";
+        header.style.boxShadow="0 10px 30px rgba(0,0,0,.4)";
+
+    }else{
+
+        header.style.background="rgba(8,19,31,.7)";
+        header.style.boxShadow="none";
+
+    }
+
+});
+
+/* ===============================
+   شمارنده آمار
+================================= */
+
+const counters=document.querySelectorAll(".counter");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const counter=entry.target;
+
+const target=+counter.dataset.target;
+
+let count=0;
+
+const speed=target/150;
+
+const update=()=>{
+
+count+=speed;
+
+if(count<target){
+
+counter.innerText=Math.floor(count);
+
+requestAnimationFrame(update);
+
+}else{
+
+counter.innerText=target+"+";
+
+}
+
+}
+
+update();
+
+observer.unobserve(counter);
+
+}
+
+})
+
+})
+
+counters.forEach(counter=>observer.observe(counter));
+
+/* ===============================
+   نمایش دکمه بازگشت بالا
+================================= */
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>500){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+})
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+})
+
+}
+
+/* ===============================
+   افکت ظاهر شدن بخش‌ها
+================================= */
+
+const reveals=document.querySelectorAll("section");
+
+const revealObserver=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+})
+
+},{
+threshold:.15
+})
+
+reveals.forEach(section=>{
+
+section.style.opacity="0";
+
+section.style.transform="translateY(80px)";
+
+section.style.transition="all .8s ease";
+
+revealObserver.observe(section);
+
+})
+
+/* ===============================
+   افکت سه‌بعدی کارت‌ها
+================================= */
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+card.addEventListener("mousemove",(e)=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+const rotateY=((x/rect.width)-0.5)*18;
+
+const rotateX=((y/rect.height)-0.5)*-18;
+
+card.style.transform=`
+perspective(1000px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-8px)
+`;
+
+})
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="perspective(1000px) rotateX(0) rotateY(0)";
+
+})
+
+})
+
+/* ===============================
+   دکمه جستجو
+================================= */
+
+const searchBtn=document.querySelector(".search-box button");
+
+searchBtn.addEventListener("click",()=>{
+
+alert("در نسخه دمو، قابلیت جستجو صرفاً نمایشی است.");
+
+})
+
+/* ===============================
+   فرم تماس
+================================= */
+
+const form=document.querySelector(".contact-form");
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+alert("پیام شما با موفقیت ثبت شد.");
+
+form.reset();
+
+})
+
+</script>
+
+</body>
+
+</html>
